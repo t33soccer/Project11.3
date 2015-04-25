@@ -10,5 +10,5 @@ int main() {
 	
 	fin.open("testindot.txt");
 	
-	testfind(fin);
+	findme(fin);
 }

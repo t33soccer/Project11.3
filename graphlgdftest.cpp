@@ -18,21 +18,21 @@ int main() {
 	MyGraph.setEdge(2,0,4);
 	MyGraph.setEdge(3,2,4);
 	
-	MyGraph.serializegph(fout);
+	MyGraph.serializegdf(fout);
 	cout << MyGraph.n() <<endl;
 	fout.close();
 	
-	// ifstream fin;
+	ifstream fin;
 	
-	// fin.open("testingdf.txt");
+	fin.open("testingdf.txt");
 	
 	
 	
-	// Graphl MyFileGraph(4);
+	Graphl MyFileGraph(4);
 	
-	// cout << MyFileGraph.e() <<endl;
+	cout << MyFileGraph.e() <<endl;
 	
-	// MyFileGraph.deserializegdf(fin);
+	MyFileGraph.deserializegdf(fin);
 
-	// cout << MyFileGraph.e() << endl;
+	cout << MyFileGraph.e() << endl;
 }

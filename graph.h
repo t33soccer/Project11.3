@@ -62,9 +62,9 @@ public:
   virtual int getMark(int v) =0;
   virtual void setMark(int v, int val) =0;
   virtual void serializedot(ostream& o) = 0;
-  virtual void serializegph(ostream& o) = 0;
+  virtual void serializegdf(ostream& o) = 0;
   virtual void deserializedot(istream& i) = 0;
-  virtual void deserializegph(istream& i) = 0;
+  virtual void deserializegdf(istream& i) = 0;
 };
 
 #endif

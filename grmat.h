@@ -95,39 +95,41 @@ public:
 	  for (int i=0; i<numVertex; i++) {
 		  for (int j=0; j<numVertex; j++) {
 			  if (matrix[i][j] !=0) {
-				  o << i << " " << "--" << " " << j << " " << ";" << endl;
+				  o << i << "--" << j << ";" << endl;
 			  }
 		  }
 	  }
   }
   
   void deserializedot(istream& i) {
-	  string str;
-	  int myint1;
-	  int myint2;
-	  while (getline(i,str)) {
-		  myint1 = (int) str[0];
-		  myint1 = myint1 - '0';
-		  myint2 = (int) str[3];
-		  myint2 = myint2 - '0';
-		  setEdge(myint1,myint2,1);
-	  }
+	  
+	string str;
+	string num1;
+	int num1int;
+	string num2;
+	int num2int;
+	std::string::size_type firNumStart;
+	std::string::size_type secNumStart;
+	std::string::size_type dashStart;
+	std::string::size_type semicolonEnd;
+	
+	while (getline(i,str)) {
+		
+		dashStart = str.find("-");
+		semicolonEnd = str.find(";");
+		num1 = str.substr(0,dashStart);
+		secNumStart = dashStart + 2;
+		num2 = str.substr(secNumStart, (semicolonEnd - secNumStart));
+		
+		num1int = atoi(num1.c_str());
+		num2int = atoi(num2.c_str());
+		
+		setEdge(num1int,num2int,1);
+	}
   }
   
-  void deserializedot(istream& i) {
-	  string str;
-	  int myint1;
-	  int myint2;
-	  while (getline(i,str)) {
-		  myint1 = (int) str[0];
-		  myint1 = myint1 - '0';
-		  myint2 = (int) str[3];
-		  myint2 = myint2 - '0';
-		  setEdge(myint1,myint2,1);
-	  }
-  }
   
-  void serializegph(ostream& o) {
+  void serializegdf(ostream& o) {
 	  o << "nodedef>name"<< endl;
 	    for (int i=0; i<numVertex; i++){
 			o << i <<endl ;
@@ -142,8 +144,45 @@ public:
 	  }
   }
   
-  void deserializegph(istream& i) {
-	  //
+  void deserializegdf(istream& i) {
+	
+	string str;
+	string num1;
+	int num1int;
+	string num2;
+	int num2int;
+	std::string::size_type firNumStart;
+	std::string::size_type secNumStart;
+	std::string::size_type edgeEnd;
+	std::string::size_type comma;
+	
+	bool isEdge;
+	
+	isEdge = false;
+	
+	while (getline(i,str)) {
+		
+		
+		if (isEdge==true) {
+			comma = str.find(",");
+			edgeEnd = str.find(" ");
+			num1 = str.substr(0,comma);
+			secNumStart = comma + 1;
+			num2 = str.substr(secNumStart,(edgeEnd - secNumStart));
+			
+			num1int = atoi(num1.c_str());
+			num2int = atoi(num2.c_str());
+			
+			setEdge(num1int,num2int,1);
+		}
+		
+		if (isEdge==false) {
+			if (str=="edgedef>node1,node2"){
+					isEdge = true;
+			}
+		}
+		
+	}
   }
 };
 

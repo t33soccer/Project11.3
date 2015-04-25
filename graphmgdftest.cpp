@@ -20,17 +20,17 @@ int main() {
 	MyGraph.serializegdf(fout);
 	cout << MyGraph.n() <<endl;
 	
-	// ifstream fin;
+	ifstream fin;
 	
-	// fin.open("testingdf.txt");
+	fin.open("testingdf.txt");
 	
 	
 	
-	// Graphm MyFileGraph(4);
+	Graphm MyFileGraph(4);
 	
-	// cout << MyFileGraph.e() <<endl;
+	cout << MyFileGraph.e() <<endl;
 	
-	// MyFileGraph.deserializedot(fin);
+	MyFileGraph.deserializegdf(fin);
 
-	// cout << MyFileGraph.e() << endl;
+	cout << MyFileGraph.e() << endl;
 }
