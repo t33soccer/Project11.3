@@ -95,9 +95,22 @@ public:
 	  for (int i=0; i<numVertex; i++) {
 		  for (int j=0; j<numVertex; j++) {
 			  if (matrix[i][j] !=0) {
-				  o << i << "--" << j << ";" << endl;
+				  o << i << " " << "--" << " " << j << " " << ";" << endl;
 			  }
 		  }
+	  }
+  }
+  
+  void deserializedot(istream& i) {
+	  string str;
+	  int myint1;
+	  int myint2;
+	  while (getline(i,str)) {
+		  myint1 = (int) str[0];
+		  myint1 = myint1 - '0';
+		  myint2 = (int) str[3];
+		  myint2 = myint2 - '0';
+		  setEdge(myint1,myint2,1);
 	  }
   }
   
@@ -117,7 +130,7 @@ public:
   void serializegph(ostream& o) {
 	  o << "nodedef>name"<< endl;
 	    for (int i=0; i<numVertex; i++){
-			o << i<<endl ;
+			o << i <<endl ;
 	    }
 	    o<<"edgedef>node1,node2"<<endl;
 	    for (int i=0; i<numVertex; i++) {
