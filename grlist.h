@@ -196,7 +196,7 @@ public:
   }
   
   void deserializegdf(istream& i) {
-	  	string str;
+	string str;
 	string num1;
 	int num1int;
 	string num2;
