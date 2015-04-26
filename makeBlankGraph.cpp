@@ -6,41 +6,18 @@ int main() {
 	
 	ofstream fout;
 	
-	fout.open("test.txt");
+	fout.open("graph.txt");
 	
-	Graphm MyGraph(10);
+	Graphm MyGraph(100000);
 	
 	cout << MyGraph.e() << endl;
 	
-	makeBlankGraph(MyGraph,10,true);
+	makeBlankGraph(MyGraph,100000,false);
 	
 	cout << MyGraph.e() << endl;
 	
 	MyGraph.serializegph(fout);
 	
-	// MyGraph.serializedot(fout);
-	
-	// fout.close();
-	
-	// Graphm MyFGraph(1000);
-	
-	// ifstream fin;
-	
-	// fin.open("test.txt");
-	
-	// cout << MyFGraph.e() << endl;
-	
-	// MyFGraph.deserializedot(fin);
-	
-	// cout << MyFGraph.e() << endl;
-	
-	// ofstream fout2;
-	
-	// fout2.open("test2.txt");
-	
-	// MyFGraph.serializedot(fout2);
-	
-	// fout2.close();
 	
 	
 	
