@@ -1,9 +1,9 @@
-#ifndef __CREATEGRAPH__
-#define __CREATEGRAPH__
+#ifndef __MAKEBLANKGRAPH__
+#define __MAKEBLANKGRAPH__
 
 #include "graph.h"
 
-void createGraph(Graph& g, int v, bool isDense) {
+void makeBlankGraph(Graph& g, int v, bool isDense) {
 	// v is verticies
 	// isDense determines if g is dense or sparse
 	// g is passed in graph, blank
@@ -25,5 +25,6 @@ void createGraph(Graph& g, int v, bool isDense) {
 		}
 	}
 }
+
 
 #endif

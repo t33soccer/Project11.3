@@ -184,6 +184,19 @@ public:
 		
 	}
   }
+  
+  void serializegph(ostream& o) {
+	  o << n() << endl;
+	  o << "U" << endl;
+	  for (int i=0; i<numVertex; i++) {
+		  for (int j=0; j<numVertex; j++) {
+			  if (matrix[i][j] !=0) {
+				  o << i << " " << j << " " << matrix[i][j] << endl;
+			  }
+		  }
+	  }
+  }
+  
 };
 
 #include "graphutil.cpp"
