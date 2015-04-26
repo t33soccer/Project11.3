@@ -234,6 +234,22 @@ public:
 		
 	}
   }
+  
+  
+  void serializegph(ostream& o) {
+	  o << n() << endl;
+	  o << "U" << endl;
+	  int i;
+	  Edge temp;
+	  for (i=0; i<numVertex; i++) {
+		  for (vertex[i]->moveToStart(); vertex[i]->currPos() < vertex[i]->length(); vertex[i]->next()) {
+				temp = vertex[i]->getValue();
+				o << i << " " <<  temp.vertex() << " " << temp.weight() << endl;
+				
+		  }
+	  }
+  }
+  
 };
 
 
